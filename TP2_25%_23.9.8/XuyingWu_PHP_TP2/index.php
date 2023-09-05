@@ -175,13 +175,12 @@
             if($test)
             {
                 header("Location: index.php?commande=ListeArticles&message=Suppression réussie.");
-                die();
             }
             else 
             {
                 header("Location: index.php?commande=ListeArticles&message=Échec de la suppression.");
-                die();
             }
+            break;
 
         case "Cherche":
             if((isset($_REQUEST["contenu"]) && strlen(trim($_REQUEST["contenu"])) != 0))
@@ -199,7 +198,6 @@
             else 
             {
                 header("Location: index.php?commande=FormCherche&message=Formulaire mal rempli.");
-                die();
             }
             break;
 

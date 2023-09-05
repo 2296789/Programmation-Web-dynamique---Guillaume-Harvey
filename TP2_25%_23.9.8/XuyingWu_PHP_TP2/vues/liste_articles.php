@@ -40,7 +40,7 @@ if(isset($_SESSION["username"]))
 }
 ?>
     <br>
-    <a href='index.php?commande=FormCreeArtciel'>Ecrire un article </a>?? avec lien de log in si sans log in, c'est bon??
+    <a href='index.php?commande=FormCreeArtciel'>Ecrire un article </a>
     <br>
     <a href='index.php'>Retourner à l'accueil</a><br>
 <?php

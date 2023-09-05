@@ -10,6 +10,7 @@
     
     if(isset($_SESSION["username"]))
         echo "Bienvenue : " . $_SESSION["username"];
+        
 ?>
 <h1>Creer un article</h1>
 <form method="POST" action="index.php">

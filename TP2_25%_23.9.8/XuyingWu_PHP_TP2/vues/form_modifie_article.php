@@ -4,6 +4,7 @@ if(isset($_SESSION["username"]))
     echo "Bienvenue : " . $_SESSION["username"];
 }
 ?>
+
 <h1>Modification d'article</h1>
 <form method="POST" action="index.php">
     Titre : <input type="text" name="titre" value="<?= htmlspecialchars($article["titre"]) ?>"/><br>

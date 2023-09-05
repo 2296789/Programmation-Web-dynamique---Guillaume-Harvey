@@ -1,6 +1,6 @@
 Bonjour Guillaume
 
-https://webdev.cmaisonneuve.qc.ca/phpmyadmin/
+https://e2296789.webdev.cmaisonneuve.qc.ca/XuyingWu_PHP_TP2/
 
 Les combinaisons username, password dans mon TP est :
 
