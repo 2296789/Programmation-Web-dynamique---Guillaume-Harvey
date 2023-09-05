@@ -1,0 +1,11 @@
+Bonjour Guillaume
+
+https://webdev.cmaisonneuve.qc.ca/phpmyadmin/
+
+Les combinaisons username, password dans mon TP est :
+
+AA : aaaa
+BB : bbbb
+CC : cccc
+DD : dddd
+EE : eeee
