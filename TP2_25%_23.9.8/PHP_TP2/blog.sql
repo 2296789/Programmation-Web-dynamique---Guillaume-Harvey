@@ -2,6 +2,7 @@ CREATE TABLE usager (
     nom VARCHAR(20) PRIMARY KEY,
     mot_passe VARCHAR(255) NOT NULL
 );
+
 INSERT INTO usager (nom, mot_passe) VALUES
 ('AA','$2y$10$0mrwLOoB9dretK0yUk/F5OaTGrldTIZL55zIxtB5IQSODJvkLHI8e'),
 ('BB','$2y$10$LhWdm7rqlxEyTkOCWOvPnePTJGg425zmmY/v79nuvoIMU/iEAQg1e'),
@@ -16,6 +17,7 @@ CREATE TABLE article (
     auteur VARCHAR(20),
     FOREIGN KEY(auteur) REFERENCES usager(nom)
 );
+
 INSERT INTO article (titre, texte, auteur) VALUES
 ('1','1-----1','AA'),
 ('2','2-----2','BB'),

@@ -1,17 +1,17 @@
 <?php 
-   
+
+    /*
     define("SERVER", "localhost");
     define("USERNAME", "root");
     define("PASSWORD", "root");
     define("DBNAME", "blog");
-
-    /*
+    */
+    
     define("SERVER", "localhost");
     define("USERNAME", "e2296789");
     define("PASSWORD", "JLl2AH6eOoD6Ru7pOjhO");
     define("DBNAME", "e2296789");
-    */
-
+    
     function connectDB()
     {
         $c = mysqli_connect(SERVER, USERNAME, PASSWORD, DBNAME);
@@ -53,19 +53,33 @@
         $requete = "SELECT nom, mot_passe, titre, texte 
                     FROM usager 
                     JOIN article ON usager.nom = article.auteur
-                    WHERE nom = ? AND mot_passe = ?";
+                    WHERE nom = '" . $nom . "' AND mot_passe = '" . $mot_passe;
+        $resultats = mysqli_query($connexion, $requete);
+        $rangee = mysqli_fetch_assoc($resultats);
+
+        if($rangee)
+            return $rangee;
+        else 
+            return false;
+    }
+
+    function modifie_article($titre, $texte, $id)
+    {
+        global $connexion;
+
+        $requete = "UPDATE article SET titre = ?, texte = ? WHERE id = $id";
         $reqPrep = mysqli_prepare($connexion, $requete);
         $test = mysqli_query($connexion, $requete);
-
         if($reqPrep)
         {
-            mysqli_stmt_bind_param($reqPrep, "ss", $nom, $mot_passe);
+            mysqli_stmt_bind_param($reqPrep, "ss", $titre, $texte);
             $test = mysqli_stmt_execute($reqPrep);      
             return $test;
         }
         else 
             return false;
     }
+
     function cree_article($titre, $texte, $auteur)
     {
         global $connexion;
@@ -88,23 +102,6 @@
         }
         else 
             die("Erreur mysqli.");
-    }
-
-    function modifie_article($titre, $texte, $id)
-    {
-        global $connexion;
-
-        $requete = "UPDATE article SET titre = ?, texte = ? WHERE id = $id";
-        $reqPrep = mysqli_prepare($connexion, $requete);
-        $test = mysqli_query($connexion, $requete);
-        if($reqPrep)
-        {
-            mysqli_stmt_bind_param($reqPrep, "ss", $titre, $texte);
-            $test = mysqli_stmt_execute($reqPrep);      
-            return $test;
-        }
-        else 
-            return false;
     }
 
     function supprime_article($id)
